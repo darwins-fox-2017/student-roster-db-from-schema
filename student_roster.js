@@ -14,7 +14,7 @@ class Student {
   }
 
   addStudent(firstName, lastName, birthDate){
-    let seedData = `INSERT INTO student (firstname, lastname , birthdate) VALUES ('${firstName}', '${lastName}', '${birthDate}');`
+    let seedData = `INSERT INTO student (firstname, lastname , birthDate) VALUES ('${firstName}', '${lastName}', '${birthDate}');`
     db.serialize(function(){
       db.run(seedData, function(err){
         err ? console.log(err):console.log(`INSERT DATA SUCCESSFUL`)
@@ -31,7 +31,7 @@ class Student {
     })
   }
 
-  deleteStudent(){
+  deleteStudent(id){
     let removeData = `DELETE FROM student WHERE id = '${id}'`
     db.serialize(function(){
       db.run(removeData, function(err){
