@@ -141,7 +141,25 @@ class Student () {
 var newStudent = new student();
 var start = repl.start('> ');
 
+start.context.addStudent = newStudent.addStudent
+start.context.updateStudent = newStudent.updateStudent
+start.context.deleteStudent = newStudent.deleteStudent
+start.context.showStudent = newStudent.showStudent
+start.context.findByName = newStudent.findByName
+start.context.selectByAttr = newStudent.selectByAttr
+start.context.getBirthdaybyThisMonth = newStudent.getBirthdaybyThisMonth
+start.context.sortBirthday = newStudent.sortBirthday
+start.context.help = newStudent.help
 
+// newStudent.addStudent()
+// newStudent.updateStudent()
+// newStudent.deleteStudent()
+// newStudent.showStudent()
+// newStudent.findByName()
+// newStudent.selectByAttr()
+// newStudent.getBirthdaybyThisMonth()
+// newStudent.sortBirthday()
+// newStudent.help()
 //SEED_DATA
 // let seedData = () => {
 //
