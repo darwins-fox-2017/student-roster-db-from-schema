@@ -9,14 +9,14 @@ var db = new sqlite.Database(file);
 
 
 // SQL statement
-var CREATE_TABLE = `CREATE TABLE IF NOT EXISTS student ( id INTEGER PRIMARY KEY AUTOINCREMENT, firstname TEXT NOT NULL, lastname TEXT, birth date DATE)`;
-var SEED_DATA = `INSERT INTO student (firstname, lastname, birthdate) VALUES ('Rubi', 'Henjaya', '1986-11-20'), ('Riza', 'Fahmi', '1983-12-31')`;
+// var CREATE_TABLE = ;
+// var SEED_DATA = ;
 
 // CREATE_TABLE
 class Student {
   createTable() {
     db.serialize(function() {
-      db.run(CREATE_TABLE, function(err) {
+      db.run(`CREATE TABLE IF NOT EXISTS student ( id INTEGER PRIMARY KEY AUTOINCREMENT, firstname TEXT NOT NULL, lastname TEXT, birth date DATE)`, function(err) {
         if (err) {
           console.log(err);
         } else {
@@ -29,7 +29,7 @@ class Student {
 
   addStudent(fname, lname, bdate) {
     db.serialize(function() {
-      db.run(SEED_DATA, function(err) {
+      db.run(`INSERT INTO student (firstname, lastname, birthdate) VALUES ('Rubi', 'Henjaya', '1986-11-20'), ('Riza', 'Fahmi', '1983-12-31')`, function(err) {
         if (err) {
           console.log(err);
         } else {
