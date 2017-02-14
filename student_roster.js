@@ -37,7 +37,7 @@ class Student{
       if (err) {
         console.log(err);
       } else {
-        console.log('add new student data success');
+        console.log('update student data success');
       }
     });
   }
@@ -128,7 +128,7 @@ class Student{
     console.log('delete student data : deldata-> deldata(id)');
     console.log('show all student data : showall-> showall()');
     console.log('show  student filter by name  : showfiltername-> showfiltername(name)');
-    console.log('show  student filter free by user  : showfiltername-> showfiltername(filed,value)');
+    console.log('show  student filter free by user  : showfreefilter-> showfreefilter(filed,value)');
     console.log('show  student birthday this month  : thismothbirthday-> thismothbirthday()')
     console.log('show  student order by birthday  : orderbybirthday-> orderbybirthday()')
     console.log('help : help-> help()')
