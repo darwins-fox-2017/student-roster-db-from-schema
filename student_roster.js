@@ -51,7 +51,7 @@ class Student {
   static edit(id, firstname, lastname, birthdate) {
     var UPDATE_DATA = `UPDATE students SET firstname = '${firstname}', lastname = '${lastname}', birthdate= '${birthdate}' WHERE id = '${id}'`
     db.serialize(function() {
-      db.each(UPDATE_DATA, function(err, row) {
+      db.run(UPDATE_DATA, function(err, row) {
         if (err) {
           console.log(err)
         } else {
@@ -64,7 +64,7 @@ class Student {
   static delete(id) {
     var DELETE_DATA = `DELETE FROM students WHERE id = ${id}`
     db.serialize(function() {
-      db.each(DELETE_DATA, function(err, row) {
+      db.run(DELETE_DATA, function(err, row) {
         if (err) {
           console.log(err)
         } else {
