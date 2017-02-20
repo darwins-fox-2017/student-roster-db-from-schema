@@ -58,8 +58,9 @@ class Student {
         }
 
         static showFilterByName(name){
-          let select_by_name = `SELECT * FROM student WHERE first_name="${name}" OR last_name=${name}`
-          db.each(select_by_name, function(err, row){
+          let select_by_name = `SELECT * FROM student WHERE first_name= $first_name OR last_name= $last_name`
+          console.log(select_by_name);
+          db.each(select_by_name, {$first_name: name, $last_name:name}, function(err, row){
             if (err) {
               console.log(err);
             } else {
@@ -91,7 +92,7 @@ class Student {
         }
 
         static orderByBirthday(){
-          let select_and_order_by_birthday = `SELECT * FROM student ORDER BY strftime('%d-%m',student.birthdate)`
+          let select_and_order_by_birthday = `SELECT *, strftime('%m',date(birthdate)), date(strftime('%m',birthdate)), date(strftime('%d',birthdate)) FROM student ORDER BY strftime('%m',date(birthdate)), strftime('%d',date(birthdate)) `
           db.each(select_and_order_by_birthday, function(err, row) {
             if (err) {
               console.log(err);
